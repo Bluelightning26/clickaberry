@@ -3,17 +3,18 @@ extends Node2D
 var keys = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen"]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass #   with function body.
+	for key in keys:
+		set_visibility(key, false)  # Ensure sprites are not visible at the start
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	for key in keys:
 		if Input.is_action_just_pressed(key):
-			set_visibility(key, false)
+			set_visibility(key, true)
 			
 		if Input.is_action_just_released(key):
-			set_visibility(key, true)
+			set_visibility(key, false)
 
 
 func set_visibility(key, visible):
@@ -23,4 +24,4 @@ func set_visibility(key, visible):
 		
 func button_pressed(key):
 	var ting = get_node("things/" + key)		
-	ting.modulate.a = 0.0
+	ting.modulate.a = 1.0
