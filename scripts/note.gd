@@ -1,6 +1,6 @@
 extends TextureRect
 
-var speed := 400.0
+var speed := 200.0
 var target_y := 800.0
 var hit_window := 100.0
 var key := ""
@@ -11,9 +11,7 @@ var printed := false
 func _process(delta):
 	global_position.y += speed * delta
 
-	var OFFSET := -480.0  # tweak this number
-
-	var dist = abs((global_position.y + OFFSET) - target_y)
+	var dist = abs(global_position.y - target_y)
 	if key == "nine" and dist <= hit_window and not printed:
 		print("NINE NOTE AT:", global_position)
 		printed = true
@@ -37,3 +35,7 @@ func try_hit(input_key):
 		return true
 	
 	return false
+	
+func _exit_tree():
+	if get_parent() and get_parent().has_method("remove_note"):
+		get_parent().remove_note(self)
