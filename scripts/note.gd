@@ -2,7 +2,7 @@ extends TextureRect
 
 var speed := 250.0
 var target_y := 800.0
-var hit_window := 80.0
+var hit_window := 50.0
 var key := ""
 
 var hit := false
