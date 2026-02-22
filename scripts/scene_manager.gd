@@ -33,7 +33,7 @@ func change_scene(
 	await _fade_out()
 
 	await _free_current_scene()
-	await _load_new_scene(scene_path)
+	_load_new_scene(scene_path)
 
 	await _fade_in()
 

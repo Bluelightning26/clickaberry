@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://8uux7hmsxxjw"]
+[gd_scene load_steps=8 format=3 uid="uid://8uux7hmsxxjw"]
 
 [ext_resource type="Script" uid="uid://bwehxc32od42q" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://b5ci6c4n35mfs" path="res://assets/Ui/keypad.png" id="2_0wfyh"]
@@ -7,20 +7,24 @@
 [ext_resource type="Texture2D" uid="uid://dwi56eytgesb2" path="res://assets/Objects/greenFlower.png" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://dsioklri8lia4" path="res://assets/Objects/green_blank_large.png" id="6_o6xl0"]
 
+[sub_resource type="Curve" id="Curve_tefeu"]
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_o5qli")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
-offset_left = -662.0
-offset_top = -397.0
-offset_right = 637.0
-offset_bottom = 376.0
+offset_left = -448.0
+offset_top = -255.0
+offset_right = 441.0
+offset_bottom = 259.0
 color = Color(0.36862746, 0.1764706, 0.15686275, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.35, 1.35)
 
 [node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-169, 18)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 position = Vector2(165, -5)
@@ -28,6 +32,7 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_0wfyh")
 
 [node name="things" type="Node2D" parent="."]
+position = Vector2(-169, 18)
 
 [node name="one" type="TextureRect" parent="things"]
 offset_left = 75.0
@@ -173,3 +178,28 @@ offset_right = 226.0
 offset_bottom = 170.0
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_jyhfs")
+
+[node name="Line2" type="Line2D" parent="."]
+position = Vector2(-93, 40)
+width_curve = SubResource("Curve_tefeu")
+default_color = Color(0.64030194, 0, 0.377017, 1)
+
+[node name="Line1" type="Line2D" parent="."]
+position = Vector2(-92, -3)
+width_curve = SubResource("Curve_tefeu")
+default_color = Color(0.64030194, 0, 0.377017, 1)
+
+[node name="Line5" type="Line2D" parent="."]
+position = Vector2(-88, 171)
+width_curve = SubResource("Curve_tefeu")
+default_color = Color(0.64030194, 0, 0.377017, 1)
+
+[node name="Line4" type="Line2D" parent="."]
+position = Vector2(-91, 124)
+width_curve = SubResource("Curve_tefeu")
+default_color = Color(0.64030194, 0, 0.377017, 1)
+
+[node name="Line3" type="Line2D" parent="."]
+position = Vector2(-92, 82)
+width_curve = SubResource("Curve_tefeu")
+default_color = Color(0.64030194, 0, 0.377017, 1)
