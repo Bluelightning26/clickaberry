@@ -109,11 +109,28 @@ func spawn_note(key):
 	
 	active_notes[key].append(note)
 	update_hint_label()
+	
+	# Hide the key when note spawns
+	set_visibility(key, false)
 
 func remove_note(note):
-	if note.key in active_notes:
-		active_notes[note.key].erase(note)
+	# Store key before note is freed
+	var note_key = note.key
+	
+	if note_key in active_notes:
+		active_notes[note_key].erase(note)
 	update_hint_label()
+	
+	# Wait for flash animation to complete
+	await get_tree().create_timer(0.25).timeout
+	
+	# If there are still more notes for this key, hide it again after flash
+	# Otherwise, keep it visible
+	if note_key in active_notes:
+		if active_notes[note_key].is_empty():
+			set_visibility(note_key, true)
+		else:
+			set_visibility(note_key, false)
 	
 	await get_tree().create_timer(0.3).timeout  # 👈 ADD DELAY
 	spawn_random_note.call_deferred()
@@ -133,9 +150,13 @@ func handle_input(key):
 func flash_key(key):
 	var ting = get_node_or_null("things/" + key)
 	if ting:
+		ting.modulate.a = 1.0  # show
+		
+		await get_tree().create_timer(0.1).timeout
+		
 		ting.modulate.a = 0.0  # hide
 		
-		await get_tree().create_timer(0.1).timeout  # 0.1 sec flash
+		await get_tree().create_timer(0.1).timeout
 		
 		ting.modulate.a = 1.0  # show again
 
