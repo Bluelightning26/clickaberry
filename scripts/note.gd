@@ -1,8 +1,8 @@
 extends TextureRect
 
-var speed := 200.0
+var speed := 250.0
 var target_y := 800.0
-var hit_window := 100.0
+var hit_window := 40.0
 var key := ""
 
 var hit := false
@@ -16,8 +16,11 @@ func _process(delta):
 		print("NINE NOTE AT:", global_position)
 		printed = true
 
-	if global_position.y > target_y + hit_window:
+	# Let note move completely off-screen (200 pixels past target)
+	if global_position.y > 260:
 		print("MISS:", key)
+		if get_parent() and get_parent().has_method("on_miss"):
+			get_parent().on_miss()
 		queue_free()
 		
 func try_hit(input_key):

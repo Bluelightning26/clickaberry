@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://clrv117evhvsf"]
+
+[ext_resource type="Texture2D" uid="uid://dsioklri8lia4" path="res://assets/Objects/green_blank_large.png" id="1_6rjfb"]
+[ext_resource type="Script" uid="uid://ba10awrs7ht33" path="res://scripts/note.gd" id="1_t3yvt"]
+
+[node name="TextureRect" type="TextureRect"]
+texture_filter = 1
+offset_left = 42.0
+offset_right = 127.44827
+offset_bottom = 42.0
+rotation = 1.5707964
+texture = ExtResource("1_6rjfb")
+expand_mode = 3
+script = ExtResource("1_t3yvt")

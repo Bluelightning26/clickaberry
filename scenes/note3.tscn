@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgy12qtces4oo"]
+[gd_scene load_steps=3 format=3 uid="uid://c4euo5xtoqfju"]
 
-[ext_resource type="Texture2D" uid="uid://dwi56eytgesb2" path="res://assets/Objects/greenFlower.png" id="1_1bnk6"]
+[ext_resource type="Texture2D" uid="uid://dsioklri8lia4" path="res://assets/Objects/green_blank_large.png" id="1_sjnba"]
 [ext_resource type="Script" uid="uid://ba10awrs7ht33" path="res://scripts/note.gd" id="1_t3yvt"]
 
 [node name="TextureRect" type="TextureRect"]
 texture_filter = 1
 offset_right = 42.0
 offset_bottom = 42.0
-texture = ExtResource("1_1bnk6")
-expand_mode = 1
+texture = ExtResource("1_sjnba")
+expand_mode = 3
 script = ExtResource("1_t3yvt")
